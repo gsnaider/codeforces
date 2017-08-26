@@ -1,7 +1,9 @@
 package gs.codeforces.problems.problem4c;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -10,14 +12,19 @@ public class Problem4CSolver {
 
 	public static void main(String[] args) {
 		
-		Set<String> database = new HashSet<>();
-		Map<String, Integer> nextNumbers = new HashMap<>();
-		
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
 		scanner.nextLine();
+		List<String> names = new ArrayList<>();
 		for (int i = 0; i < n; i++) {
-			String name = scanner.nextLine();
+			names.add(scanner.nextLine());
+		}
+		
+		Set<String> database = new HashSet<>();
+		Map<String, Integer> nextNumbers = new HashMap<>();
+		
+		scanner.close();
+		for (String name : names) {
 			if (database.add(name)) {
 				System.out.println("OK");
 			} else {
@@ -33,7 +40,7 @@ public class Problem4CSolver {
 				System.out.println(newName);
 			}
 		}
-		scanner.close();
+		
 		
 	}
 	
